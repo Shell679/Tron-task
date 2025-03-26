@@ -5,7 +5,7 @@ from sqlalchemy import Column, Integer, String, Float, DateTime, func
 models_metadata = MetaData()
 Base = declarative_base(metadata=models_metadata)
 
-class TronWalletQuery(Base):
+class TronWallet(Base):
     __tablename__ = "tron_wallet_queries"
     metadata = models_metadata
 
