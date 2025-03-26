@@ -10,7 +10,7 @@ class TronWalletQuery(Base):
     metadata = models_metadata
 
     id = Column(Integer, primary_key=True, index=True)
-    wallet_address = Column(String, nullable=False)
+    wallet_address = Column(String(256), nullable=False)
     bandwidth = Column(Integer, nullable=False)
     energy = Column(Integer, nullable=False)
     balance_trx = Column(Float, nullable=False)
