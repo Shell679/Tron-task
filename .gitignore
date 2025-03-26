@@ -128,7 +128,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+app/config/.env
 .venv
 env/
 venv/
@@ -172,3 +172,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+/alembic/env.py
+/alembic/README
+/alembic/script.py.mako
