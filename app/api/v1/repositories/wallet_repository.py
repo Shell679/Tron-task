@@ -15,7 +15,7 @@ class WalletRepository:
         data = await self.session.execute(select(TronWallet))
         wallets = data.scalars().all()
 
-        return wallets
+        return [WalletRead.model_validate(wallet.__dict__) for wallet in wallets]
 
     async def create_wallet_query(self, new_wallet_data: WalletCreate) -> dict[str, Any]:
         new_wallet = TronWallet(**new_wallet_data.model_dump())
