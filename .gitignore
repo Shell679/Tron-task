@@ -175,3 +175,4 @@ cython_debug/
 /alembic/env.py
 /alembic/README
 /alembic/script.py.mako
+/alembic/versions/

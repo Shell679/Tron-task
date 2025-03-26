@@ -23,4 +23,4 @@ class WalletRepository:
         await self.session.flush()
         await self.session.commit()
 
-        return new_wallet
+        return new_wallet_data.model_dump()
