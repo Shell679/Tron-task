@@ -15,12 +15,13 @@ class WalletRepository:
         data = await self.session.execute(select(TronWallet))
         wallets = data.scalars().all()
 
-        return [WalletRead.model_validate(wallet.__dict__) for wallet in wallets]
+        wallet_dicts = [wallet.__dict__ for wallet in wallets]
+        return [WalletRead.model_validate(wallet) for wallet in wallet_dicts]
 
     async def create_wallet_query(self, new_wallet_data: WalletCreate) -> dict[str, Any]:
         new_wallet = TronWallet(**new_wallet_data.model_dump())
         self.session.add(new_wallet)
-        await self.session.flush()
         await self.session.commit()
+        await self.session.refresh(new_wallet)
 
         return new_wallet_data.model_dump()
